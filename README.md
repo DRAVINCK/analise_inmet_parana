@@ -38,7 +38,7 @@ Certifique-se de que o *Python 3* está instalado em sua máquina.
 Instale todas as dependências do projeto através do terminal com o seguinte comando:
 
 ```bash
-pip install pandas matplotlib numpy seaborn   
+pip install pandas matplotlib numpy seaborn kagglehub
 ```
 
 ## 📊 Visualizações e Resultados
