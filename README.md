@@ -53,12 +53,12 @@ Este gráfico de linha mostra a evolução da temperatura ao longo de todos os a
 ### 2. ☀️ Ciclo Sazonal da Temperatura Média Mensal (°C)
 Aqui, é possível ver o padrão sazonal de temperatura, destacando os meses mais quentes (Verão) e mais frios (Inverno) ao calcular a média de todos os anos para cada mês.
 
-![Gráfico de Temperatura Média por Mês](imagem2.jpg)
+![Gráfico de Temperatura Média por Mês](imagem3.jpg)
 
 ### 3. 🌧️ Volume Médio de Chuva por Mês (mm)
 Um gráfico de barras essencial para o planejamento hídrico e agrícola, exibindo o volume médio de precipitação por mês e identificando o período de maior e menor incidência de chuvas.
 
-![Gráfico de Volume Médio de Chuva por Mês](imagem3.jpg)
+![Gráfico de Volume Médio de Chuva por Mês](imagem2.jpg)
 
 ### 4. 📈 Série Temporal da Temperatura Média Diária (°C)
 Uma visão de alta granularidade da temperatura média registrada ao longo de toda a série histórica, útil para observar a variação e volatilidade diária.
