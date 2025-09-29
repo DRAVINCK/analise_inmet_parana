@@ -3,9 +3,15 @@ import matplotlib.pyplot as plt
 import matplotlib.ticker as mticker
 import numpy as np
 import seaborn as sns
+import kagglehub
 
+path = kagglehub.dataset_download("paulogladson/inmat-por-cidades")
 
-file_path = "PR.csv"  
+print("Path to dataset files:", path)
+
+path = f'{path}\PR.csv'
+
+file_path = path  
 df = pd.read_csv(file_path, sep=";")
 
 
