@@ -4,14 +4,17 @@ import matplotlib.ticker as mticker
 import numpy as np
 import seaborn as sns
 import kagglehub
+import os
 
 path = kagglehub.dataset_download("paulogladson/inmat-por-cidades")
 
-print("Path to dataset files:", path)
+path_PR = path = os.path.join(path, 'PR.csv')
+path_PARANA = path = os.path.join(path, 'PARANA.csv')
 
-path = f'{path}\PR.csv'
+print("caminho da base PR.CSV:", path_PR)
+print("caminho da base PARANA.CSV:", path_PARANA)
 
-file_path = path  
+file_path = path_PR
 df = pd.read_csv(file_path, sep=";")
 
 
