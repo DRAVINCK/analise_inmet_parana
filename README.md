@@ -69,3 +69,5 @@ Um gráfico de barras essencial para o planejamento hídrico e agrícola, exibin
 Este gráfico de duplo eixo compara a tendência da precipitação média anual com a umidade média anual, oferecendo um insight visual sobre a relação entre estas duas variáveis.
 
 ![Gráfico de Correlação Anual](imagem1.jpg)
+
+https://www.canva.com/design/DAG0Zownz5U/H6ZZgYp3I7CzpD6FE8AZMg/edit?ui=e30
