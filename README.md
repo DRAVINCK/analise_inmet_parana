@@ -48,7 +48,7 @@ Os gráficos gerados revelam informações valiosas sobre o clima da região ana
 ### 1. 🌡️ Temperaturas Média, Mínima e Máxima por Ano (°C)
 Este gráfico de linha mostra a evolução da temperatura ao longo de todos os anos disponíveis na base, permitindo identificar tendências de longo prazo ou anomalias.
 
-![Gráfico de Temperatura Média, Mínima e Máxima por Ano](imagem1.jpg)
+![Gráfico de Temperatura Média, Mínima e Máxima por Ano](imagem5.jpg)
 
 ### 2. ☀️ Ciclo Sazonal da Temperatura Média Mensal (°C)
 Aqui, é possível ver o padrão sazonal de temperatura, destacando os meses mais quentes (Verão) e mais frios (Inverno) ao calcular a média de todos os anos para cada mês.
@@ -68,4 +68,4 @@ Uma visão de alta granularidade da temperatura média registrada ao longo de to
 ### 5. 📉 Correlação: Evolução Anual da Precipitação vs. Umidade
 Este gráfico de duplo eixo compara a tendência da precipitação média anual com a umidade média anual, oferecendo um insight visual sobre a relação entre estas duas variáveis.
 
-![Gráfico de Correlação Anual](imagem5.jpg)
+![Gráfico de Correlação Anual](imagem1.jpg)
