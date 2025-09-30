@@ -111,8 +111,25 @@ df_analise_precip_umid = df.groupby('Ano').agg({
     "PRECIPITAÇÃO_TOTAL__HORÁRIO_(mm)": "mean",
     "UMIDADE_MEDIA": "mean"
 })
-print("\nCorrelação de Precipitação e Umidade (media):")
-print(df_analise_precip_umid.corr()) 
+
+df_analise_precip_umid_mes = df.groupby('Mes').agg({
+    "PRECIPITAÇÃO_TOTAL__HORÁRIO_(mm)": "mean",
+    "UMIDADE_MEDIA": "mean"
+})
+
+df_analise_precip_umid_data = df.groupby(df['Data'].dt.date).agg({
+    "PRECIPITAÇÃO_TOTAL__HORÁRIO_(mm)": "mean",
+    "UMIDADE_MEDIA": "mean"
+})
+
+print("\nCorrelação de Precipitação e Umidade (media) - ANO:")
+print(df_analise_precip_umid.corr())
+
+print("\nCorrelação de Precipitação e Umidade (media) - MES:")
+print(df_analise_precip_umid_mes.corr())
+
+print("\nCorrelação de Precipitação e Umidade (media) - DATA:")
+print(df_analise_precip_umid_data.corr())
 
 #configuração do grafico
 fig, ax1 = plt.subplots(figsize=(14, 7))
