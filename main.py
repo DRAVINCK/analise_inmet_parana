@@ -36,7 +36,9 @@ plt.xlabel("Data")
 plt.show()
 plt.savefig('grafico_temp_med_total_base.png')
 
-
+###########################################
+# Analise temperatura minima, média e maxia
+###########################################
 temp_ano = df.groupby("Ano")["TEMPERATURA_MEDIA"].agg(["mean", "min", "max"])
 print("Temperatura média, mínima e máxima por ano:")
 print(temp_ano)
@@ -58,10 +60,14 @@ plt.grid()
 plt.show()
 plt.savefig('grafico_temp_med_min_max.png')
 
+############################
+# Temperatura media por mês
+############################
 temp_mes = df.groupby("Mes")["TEMPERATURA_MEDIA"].mean()
 print("\nTemperatura média por mês:")
 print(temp_mes)
 
+#configuração do grafico
 plt.figure(figsize=(8,5))
 plt.plot(temp_mes.index, temp_mes.values, marker='o', color='orange')
 
@@ -76,11 +82,14 @@ plt.grid()
 plt.show()
 plt.savefig('grafico_temp_med_mes.png')
 
+###########################################
+# Volume de chuva
+###########################################
 chuva_mes = df.groupby("Mes")["PRECIPITAÇÃO_TOTAL__HORÁRIO_(mm)"].mean()
-
 print("\nVolume médio de chuva por mês (mm):")
 print(chuva_mes)
 
+#configuração do grafico
 plt.figure(figsize=(8,5))
 plt.bar(range(1,13), chuva_mes)
 
@@ -95,20 +104,23 @@ plt.grid(axis='y')
 plt.show()
 plt.savefig('grafico_volume_chuva_med_mes.png')
 
+##############################################
+# Correlação de Precipitação e Umidade (media)
+##############################################
 df_analise_precip_umid = df.groupby('Ano').agg({
     "PRECIPITAÇÃO_TOTAL__HORÁRIO_(mm)": "mean",
     "UMIDADE_MEDIA": "mean"
 })
-
+print("\nCorrelação de Precipitação e Umidade (media):")
 print(df_analise_precip_umid.corr()) 
 
+#configuração do grafico
 fig, ax1 = plt.subplots(figsize=(14, 7))
 ax1.grid(True, linestyle='--', alpha=0.6)
 
 color1 = 'green'
 ax1.set_xlabel("Ano", fontsize=14)
 ax1.set_ylabel("Precipitação Média Anual (mm)", color=color1, fontsize=12)
-
 ax1.plot(
     df_analise_precip_umid.index,
     df_analise_precip_umid["PRECIPITAÇÃO_TOTAL__HORÁRIO_(mm)"],
@@ -116,7 +128,6 @@ ax1.plot(
     marker="o", linestyle='-',
     label="Precipitação Média Anual")
 ax1.tick_params(axis="y", labelcolor=color1) 
-
 sns.regplot(x=df_analise_precip_umid.index, y=df_analise_precip_umid["PRECIPITAÇÃO_TOTAL__HORÁRIO_(mm)"], ax=ax1, scatter=False, color=color1,
             line_kws={'linestyle':'', 'label':'Tendência Precipitação'})
 
@@ -126,7 +137,6 @@ for ano, valor in df_analise_precip_umid["PRECIPITAÇÃO_TOTAL__HORÁRIO_(mm)"].
 ax2 = ax1.twinx() 
 color2 = 'blue'
 ax2.set_ylabel("Umidade Média Anual (%)", color=color2, fontsize=12)
-
 ax2.plot(
     df_analise_precip_umid.index,
     df_analise_precip_umid["UMIDADE_MEDIA"],
@@ -135,19 +145,16 @@ ax2.plot(
     linestyle='-',
     label="Umidade Média Anual")
 ax2.tick_params(axis="y", labelcolor=color2) 
-
 sns.regplot(x=df_analise_precip_umid.index, y=df_analise_precip_umid["UMIDADE_MEDIA"], ax=ax2, scatter=False, color=color2,
             line_kws={'linestyle':'', 'label':'Tendência Umidade'})
-
 
 for ano, valor in df_analise_precip_umid["UMIDADE_MEDIA"].items():
     ax2.annotate(f"{valor:.1f}", (ano, valor), textcoords="offset points", xytext=(0,-15), ha='center', fontsize=8, color=color2)
 
+# plota o grafico
 plt.title("Evolução Anual da Precipitação Média vs. Umidade Média com Tendência", fontsize=18, pad=20)
 fig.tight_layout()
-
 plt.xticks(ticks=df_analise_precip_umid.index, rotation=45)
-
 lines, labels = ax1.get_legend_handles_labels()
 lines2, labels2 = ax2.get_legend_handles_labels()
 ax2.legend(lines + lines2, labels + labels2, loc='upper left')
